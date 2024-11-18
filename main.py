@@ -51,6 +51,35 @@ async def new_start(update:Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await context.bot.send_message(user.id, text.upper())
 
 
+# This belwo fun will trigger on each message come to bot not for any other update
+async def new_start(update:Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """i remove those error sugession by this"""
+    
+    if update.message:
+        user = update.message.from_user
+    else:
+        user = None
+
+    if user:
+        text = f"Hello {user.full_name} this is a Example Bot"
+        await context.bot.send_message(user.id, text)
+
+
+
+
+# This belwo fun will trigger on each message come to bot not for any other update
+async def new_start(update:Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """i remove those error sugession by this"""
+    
+    if not update.message:
+        return None
+    user = update.message.from_user
+    text = f"Hello thanks"
+    if user:
+        await context.bot.send_message(user.id, text.upper())
+    else:
+        pass
+
 
 
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
